@@ -9,7 +9,7 @@ to create Python objects directly from text files such as XML, YAML, or INI.
 This library simply tries to make that process as quick as possible.
 
 Project Goals
-=============
+-------------
 
  - Take one or more text files with an optionally hierarchical plain text format,
    and generate object instances that can be used in Python projects.
