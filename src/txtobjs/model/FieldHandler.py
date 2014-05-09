@@ -71,6 +71,13 @@ class FieldHanlder(object):
     #  2) Save the parsed value to the field value
     SAVE_SINGLE_VALUE = 'SAVE_SINGLE_VALUE'
 
+
+    # List of values to be interpreted.
+    # Parser should:
+    #  1) Call convert_parsed_value() on each individual item
+    #  2) Save the parsed values as a list to the field value
+    SAVE_LIST_ITEMS = 'SAVE_LIST_ITEMS'
+
     @abstractmethod
     def handling_code(self):
         '''Tell parser what to do with this field when it is being parsed
@@ -84,6 +91,14 @@ class FieldHanlder(object):
         '''
 
 
+    @abstractmethod
+    def valdiate(self, value):
+        '''Check the validity of the value store in the field
+
+        @return str: None if no errors, else string error description
+        '''
+
+
     def convert_parsed_value(self, parsed_value):
         '''Take the value parsed from the text file and encode value for field
 
@@ -91,3 +106,6 @@ class FieldHanlder(object):
         @return: Value to save as field value
         '''
         return parsed_value
+
+
+

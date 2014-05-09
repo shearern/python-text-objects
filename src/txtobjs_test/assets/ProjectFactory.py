@@ -1,19 +1,24 @@
 from txtobjs.TextObjectFactory import TextObjectFactory
 
 from txtobjs.model.SimpleTextField import SimpleTextField
+from txtobjs.model.DateField import DateField
+from txtobjs.model.FlagField import FlagField
+from txtobjs.model.BoolField import BoolField
+from txtobjs.model.RemoteObjList import RemoteObjList
+from txtobjs.model.SubObjectDict import SubObjectDict
 
 class ProjectFactory(TextObjectFactory):
     '''Sample factory to parse project.yml test file'''
 
     text_class = 'Project'
 
-    title = TextField('Title')
+    title = SimpleTextField('Title')
     started = DateField('Started')
     hidden = FlagField('Hidden')
     active = BoolField('Active')
     predecessors = RemoteObjList('Predecesssors',
                                  text_class='Project')
 
-    project_id = TextField('Id').identifies_obj()
+    project_id = SimpleTextField('Id').identifies_obj()
     tasks = SubObjectDict('Tasks', factory=ProjectTaskFactory())
 
