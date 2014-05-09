@@ -5,14 +5,14 @@ class FieldHanlder(object):
     __metaclass__ = ABCMeta
 
 
-    def __init__(self, text_name, case_sensitive=False):
+    def __init__(self, text_name):
         '''Init
 
         @param text_property_name: Name of the field in the text file
         @param case_sensitive: Is text_name case sensitive
         '''
         self.__match_text_name = text_name
-        self.__text_name_case_sensitive = case_sensitive
+        self.__text_name_case_sensitive = False
         self.__identifies_obj = False
         self.__required = False
 
@@ -53,6 +53,12 @@ class FieldHanlder(object):
 
     def required(self):
         self.__required = True
+        return self
+
+
+    def case_sesitive(self):
+        '''Mark the text_name as case sensitive'''
+        self.__text_name_case_sensitive = True
         return self
 
 
