@@ -1,0 +1,5 @@
+
+class TextObjectError(Exception):
+    pass
+
+

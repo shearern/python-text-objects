@@ -1,0 +1,23 @@
+---
+Project:
+    Type:       Project
+    Title:      ePAF Notification
+    Started:    2014-05-01
+    Hidden:
+    Active:     true
+    Predecessors:
+        - Project A
+        - Project B
+    Id:         epaf_notify
+    Tasks:
+        design:
+            Title:  Design Solution
+        develop:
+            Title:  Develop Solution
+            pred:
+                - design
+        test:
+            Title:  Test Code
+            pred:
+                - develop
+                - design
