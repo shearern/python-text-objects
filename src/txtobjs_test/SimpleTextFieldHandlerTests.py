@@ -1,7 +1,7 @@
 
 import unittest
 
-from txtobjs.model.SimpleTextField import SimpleTextField
+from txtobjs.schema.SimpleTextField import SimpleTextField
 
 
 class SimpleTextFieldHandlerTests(unittest.TestCase):

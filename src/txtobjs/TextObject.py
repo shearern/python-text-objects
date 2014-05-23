@@ -14,9 +14,7 @@ class FieldInfo(object):
 
 
 class TextObject(object):
-    '''Base class for objects generated from text source files
-
-
+    '''Base class for defining the syntax of a TextObject file
 
     The primary data contained in a TextObject is in fields.  The term "fields"
     here is used to not conflict with Python object properties, but there

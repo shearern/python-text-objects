@@ -1,11 +1,13 @@
-from txtobjs.TextObjectFactory import TextObjectSchema
+from txtobjs.schema.TextObjectSchema import TextObjectSchema
 
-from txtobjs.model.SimpleTextField import SimpleTextField
-from txtobjs.model.DateField import DateField
-from txtobjs.model.FlagField import FlagField
-from txtobjs.model.BoolField import BoolField
-from txtobjs.model.RemoteObjList import RemoteObjList
-from txtobjs.model.SubObjectDict import SubObjectDict
+from txtobjs.schema.SimpleTextField import SimpleTextField
+from txtobjs.schema.DateField import DateField
+from txtobjs.schema.FlagField import FlagField
+from txtobjs.schema.BoolField import BoolField
+from txtobjs.schema.ObjIdList import ObjIdList
+from txtobjs.schema.SubObjectDict import SubObjectDict
+
+from TaskSchema import TaskSchema
 
 class ProjectSchema(TextObjectSchema):
     '''Sample factory to parse project.yml test file'''
@@ -16,9 +18,8 @@ class ProjectSchema(TextObjectSchema):
     started = DateField('Started')
     hidden = FlagField('Hidden')
     active = BoolField('Active')
-    predecessors = RemoteObjList('Predecesssors',
-                                 text_class='Project')
+    predecessors = ObjIdList('Predecesssors', text_class='Project')
 
     project_id = SimpleTextField('Id').identifies_obj()
-    tasks = SubObjectDict('Tasks', factory=ProjectTaskFactory())
+    tasks = SubObjectDict('Tasks', schema=TaskSchema())
 
