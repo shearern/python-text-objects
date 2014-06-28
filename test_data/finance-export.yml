@@ -1,0 +1,18 @@
+---
+Database:
+    Driver: cx_Oracle
+    Host:   db.example.com
+    Port:   1500
+    User:   username
+    Name:   finance_schema
+
+Rules:
+    Default:            Include
+    MaxFieldLength:     30
+    LongFieldPolicy:    Mask
+
+Exclude:
+    - log
+    - cache
+
+Format: YAML

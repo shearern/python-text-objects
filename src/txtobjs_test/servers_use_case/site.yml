@@ -1,0 +1,68 @@
+---
+Name: Home
+
+Networks:
+
+    Home_Internal:
+        abbrv: INT
+        ip: 192.168.1.0
+        netmask: 255.255.255.0
+        vlan: 2
+        gateway: 192.168.1.1
+
+    Home_Wireless:
+        abbrv: WRL
+        ip: 192.168.2.0
+        netmaks: 255.255.255.0
+        vlan: 3
+        gateway: 192.168.2.1
+
+    Home_External:
+        abbrv: EXT
+
+
+Machines:
+
+    Workstation:
+        hostname: workstation
+        interfaces:
+            eth0:
+                ip: 192.168.1.10
+                network: Home_Internal
+                mac: 01:50:56:A9:00:A4
+                provisioned: dhcp
+        primary_interface: eth0
+        groups:
+            - Desktops
+
+    FileServer:
+        hostname: fs
+        interfaces:
+            eth0:
+                ip: 192.168.1.100
+                network: Home_Internal
+                mac: 01:50:56:A9:A0:A4
+                provisioned: dhcp
+        groups:
+            - servers
+            - home_servers
+            - file_server
+
+
+Services:
+
+    Samba:
+        role_name: home_samba
+        hosts:
+            - FileServer
+        firewall:
+            allow_http:
+                type: INPUT
+                ports:
+                    80
+                    443
+                allowed_nets:
+                    - Home_Internal
+                    - Home_Wireless
+
+

@@ -9,7 +9,7 @@ class SubObjectDict(FieldHanlder):
 
 
     def __init__(self, text_name, schema):
-        '''INit
+        '''Init
 
         @param schema: Schema to apply to objects in collection
         '''
@@ -26,3 +26,17 @@ class SubObjectDict(FieldHanlder):
         @return str: None if no errors, else string error description
         '''
         return None
+
+
+class SubObjectDictKey(FieldHanlder):
+    '''A field that holds the key value for items of a SibObjectDict'''
+
+
+    def __init__(self):
+        '''Init
+
+        @param schema: Schema to apply to objects in collection
+        '''
+        super(SubObjectDictKey, self).__init__()
+
+
