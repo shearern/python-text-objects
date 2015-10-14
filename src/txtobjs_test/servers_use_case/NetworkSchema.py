@@ -1,6 +1,6 @@
 from txtobjs.schema.TextObjectSchema import TextObjectSchema
 
-from txtobjs.schema.SimpleTextField import SimpleTextField
+from txtobjs.schema import SimpleTextProperty.SimpleTextField
 from txtobjs.schema.SubObjectDict import SubObjectDictKey
 
 class NetworkSchema(TextObjectSchema):
@@ -9,8 +9,8 @@ class NetworkSchema(TextObjectSchema):
 
     name = SubObjectDictKey()
 
-    abbrv = SimpleTextField('abbrv')
-    ip = SimpleTextField('ip')
-    netmask = SimpleTextField('netmask')
-    vlan = SimpleTextField('vlan')
-    gateway = SimpleTextField('gateway')
+    abbrv = SimpleTextProperty('abbrv')
+    ip = SimpleTextProperty('ip')
+    netmask = SimpleTextProperty('netmask')
+    vlan = SimpleTextProperty('vlan')
+    gateway = SimpleTextProperty('gateway')

@@ -1,6 +1,6 @@
-from FieldHandler import FieldHanlder
+from TextObjectProperty import TextObjectProperty
 
-class ObjId(FieldHanlder):
+class ObjId(TextObjectProperty):
     '''A field that holds an ID that references another TextObject'''
 
 

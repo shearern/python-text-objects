@@ -1,9 +1,9 @@
 from txtobjs.schema.TextObjectSchema import TextObjectSchema
 
-from txtobjs.schema.SimpleTextField import SimpleTextField
+from txtobjs.schema import SimpleTextProperty.SimpleTextField
 from txtobjs.schema.SubObjectDict import SubObjectDict
 from txtobjs.schema.SubObjectDictKey import SubObjectDictKey
-from txtobjs.schema.ObjId import ObjId
+from txtobjs.schema import ObjIdProperty.ObjId
 from txtobjs.schema.EnumField import EnumField
 
 class ServiceFirewallSchema(TextObjectSchema):

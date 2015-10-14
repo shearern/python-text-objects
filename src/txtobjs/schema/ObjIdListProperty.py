@@ -1,6 +1,6 @@
-from FieldHandler import FieldHanlder
+from TextObjectProperty import TextObjectProperty
 
-class ObjIdList(FieldHanlder):
+class ObjIdList(TextObjectProperty):
     '''A field that list the IDs of another text object'''
 
 

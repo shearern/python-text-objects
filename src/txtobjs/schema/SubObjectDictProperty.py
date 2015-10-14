@@ -1,7 +1,7 @@
 
-from FieldHandler import FieldHanlder
+from TextObjectProperty import TextObjectProperty
 
-class SubObjectDict(FieldHanlder):
+class SubObjectDict(TextObjectProperty):
     '''A field that contains sub objects
 
     This is to include a listing
@@ -28,7 +28,7 @@ class SubObjectDict(FieldHanlder):
         return None
 
 
-class SubObjectDictKey(FieldHanlder):
+class SubObjectDictKey(TextObjectProperty):
     '''A field that holds the key value for items of a SibObjectDict'''
 
 

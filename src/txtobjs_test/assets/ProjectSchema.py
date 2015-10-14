@@ -1,9 +1,9 @@
 from txtobjs.schema.TextObjectSchema import TextObjectSchema
 
-from txtobjs.schema.SimpleTextField import SimpleTextField
-from txtobjs.schema.DateField import DateField
-from txtobjs.schema.FlagField import FlagField
-from txtobjs.schema.BoolField import BoolField
+from txtobjs.schema import SimpleTextProperty.SimpleTextField
+from txtobjs.schema.DateProperty import DateField
+from txtobjs.schema import FlagProperty.FlagField
+from txtobjs.schema.BoolProperty import BoolField
 from txtobjs.schema.ObjIdList import ObjIdList
 from txtobjs.schema.SubObjectDict import SubObjectDict
 
@@ -16,7 +16,7 @@ class ProjectSchema(TextObjectSchema):
 
     title = SimpleTextField('Title')
     started = DateField('Started')
-    hidden = FlagField('Hidden')
+    hidden = FlagProperty('Hidden')
     active = BoolField('Active')
     predecessors = ObjIdList('Predecesssors', text_class='Project')
 

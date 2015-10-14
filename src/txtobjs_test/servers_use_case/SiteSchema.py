@@ -1,6 +1,6 @@
 from txtobjs.schema.TextObjectSchema import TextObjectSchema
 
-from txtobjs.schema.SimpleTextField import SimpleTextField
+from txtobjs.schema import SimpleTextProperty.SimpleTextField
 from txtobjs.schema.SubObjectDict import SubObjectDict
 
 from NetworkSchema import NetworkSchema
@@ -11,7 +11,7 @@ class SiteSchema(TextObjectSchema):
 
     text_class = 'Site'
 
-    name = SimpleTextField('Title')
+    name = SimpleTextProperty('Title')
 
     networks = SubObjectDict('networks', schema=NetworkSchema())
     machines = SubObjectDict('machines', schema=MachineSchema())

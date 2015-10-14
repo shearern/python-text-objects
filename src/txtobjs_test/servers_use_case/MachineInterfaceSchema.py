@@ -1,8 +1,8 @@
 from txtobjs.schema.TextObjectSchema import TextObjectSchema
 
-from txtobjs.schema.SimpleTextField import SimpleTextField
-from txtobjs.schema.SubObjectDict import SubObjectDictKey
-from txtobjs.schema.ObjId import ObjId
+from txtobjs.schema.SimpleTextProperty import SimpleTextProperty
+from txtobjs.schema.SubObjectDictProperty import SubObjectDictKey
+from txtobjs.schema import ObjIdProperty.ObjId
 from txtobjs.schema.EnumField import EnumField
 
 class MachineInterfaceSchema(TextObjectSchema):
@@ -11,7 +11,7 @@ class MachineInterfaceSchema(TextObjectSchema):
 
     name = SubObjectDictKey()
 
-    ip = SimpleTextField('ip')
-    network = ObjId('network', text_class='Network')
+    ip = SimpleTextProperty('ip')
+    network = ObjIdProperty('network', text_class='Network')
     mac = SimpleTextField('mac')
     provisioned = EnumField('provisioned', valid=['dhcp', 'static'])
