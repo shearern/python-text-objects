@@ -1,0 +1,1 @@
+'''A use case where the structure of a network of servers is described'''
