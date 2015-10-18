@@ -5,7 +5,7 @@ import string
 
 import markdown2
 
-from ..exceptions import DocBlockStructureError
+from ..exceptions import TextObjectStructureError
 from ..exceptions import InvalidAttributeValueClass 
 from ..utils import describe_block_loc
 
@@ -119,11 +119,11 @@ def sanitize_name(name):
     return new_name
 
 
-class DocBlockBase(object, metaclass=ABCMeta):
-    '''Wrappers for interpreting RawDocBlocks'''
+class TextObject(object, metaclass=ABCMeta):
+    '''Wrappers for interpreting RawTextObjects'''
     
     def __init__(self, raw_doc_block):
-        super(DocBlockBase, self).__init__()
+        super(TextObject, self).__init__()
         
         self.__raw = list()
         
@@ -339,10 +339,10 @@ class DocBlockBase(object, metaclass=ABCMeta):
 
     
     def _extract_embedded_doc_blocks(self, name, value, filename, line):
-        '''Extract RawDocBlocks from the given attribute value
+        '''Extract RawTextObjects from the given attribute value
         
         @param name: Name of the attribute
-        @param value: Value stored in the attribute from this DocBlock
+        @param value: Value stored in the attribute from this TextObject
         @param filename: Filename where this attribute was set
         @param line: Line number where this attribute was set
         '''
@@ -386,7 +386,7 @@ class DocBlockBase(object, metaclass=ABCMeta):
                             possible_doc_types=link.doc_classes))
                         
 #                         msg = "Reference not found from %s to %s in (%s)"
-#                         raise DocBlockStructureError(msg % (
+#                         raise TextObjectStructureError(msg % (
 #                             self.full_name,
 #                             linked_name,
 #                             ", ".join(link.doc_classes)))
@@ -394,7 +394,7 @@ class DocBlockBase(object, metaclass=ABCMeta):
                     elif len(linked_objs) > 1:
                         msg = "Reference from %s to %s in (%s) "
                         msg += "matched multiple blocks: %s"
-                        raise DocBlockStructureError(msg % (
+                        raise TextObjectStructureError(msg % (
                             self.full_name,
                             linked_name,
                             ", ".join(link.doc_classes),
@@ -416,7 +416,7 @@ class DocBlockBase(object, metaclass=ABCMeta):
                     if len(self.__linked_objs[link.name]) > 1:
                         msg = "Link %s (from attribute %s) on %s "
                         msg += " linked to too many blocks"
-                        raise DocBlockStructureError(msg % (link.name,
+                        raise TextObjectStructureError(msg % (link.name,
                                                             link.attr_name,
                                                             self.full_name))
             
@@ -429,7 +429,7 @@ class DocBlockBase(object, metaclass=ABCMeta):
                     msg += "Defined at:\n"
                     for raw_block in self.__raw:
                         msg += " - " + raw_block.loc + "\n"
-                    raise DocBlockStructureError(msg % (self.full_name,
+                    raise TextObjectStructureError(msg % (self.full_name,
                                                         attr_def.name))
         
         # Report Link Errors
